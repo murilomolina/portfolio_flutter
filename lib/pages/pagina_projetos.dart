@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:portfolio_flutter/utils/descricao_projetos.dart';
 import 'package:portfolio_flutter/widgets/link_clicavel.dart';
@@ -28,7 +27,6 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
       descricao: descricao_proj_gerar_doc,
       urlProjeto: 'https://github.com/murilomolina?tab=repositories',
     ),
-    // Adicione mais projetos conforme necessário
   ];
 
   late PageController _pageController;
@@ -78,7 +76,8 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                   Expanded(
                                     flex: 2,
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           projetos[index].titulo,
@@ -99,21 +98,21 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 10),
                                         LinkClicavel(
-                                          text: 'Clique aqui para acessar repositório do projeto!',
+                                          text:
+                                              'Clique aqui para acessar repositório do projeto!',
                                           url: projetos[index].urlProjeto,
                                         ),
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(width: 20),
                                   Expanded(
                                     flex: 3,
                                     child: AspectRatio(
                                       aspectRatio: 16 / 9,
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10.0),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         child: Image.asset(
                                           projetos[index].imagem,
                                           fit: BoxFit.cover,
@@ -124,49 +123,54 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                 ],
                               )
                             : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  projetos[index].titulo,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                AspectRatio(
-                                  aspectRatio: 16 / 9,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    child: Image.asset(
-                                      projetos[index].imagem,
-                                      fit: BoxFit.cover,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    projetos[index].titulo,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ),
-                                const SizedBox(height: 10),
-                                Expanded(
-                                  child: CupertinoScrollbar(
-                                    thickness: 10,
-                                    thumbVisibility: true,
-                                    child: SingleChildScrollView(
-                                      child: Text(
-                                        projetos[index].descricao,
-                                        style: const TextStyle(
-                                          color: Colors.white,
+                                  const SizedBox(height: 10),
+                                  AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: Image.asset(
+                                        projetos[index].imagem,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Expanded(
+                                    child: CupertinoScrollbar(
+                                      thickness: 10,
+                                      thumbVisibility: true,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              projetos[index].descricao,
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            LinkClicavel(
+                                              text:
+                                                  'Clique aqui para acessar repositório do projeto!',
+                                              url: projetos[index].urlProjeto,
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(height: 10),
-                                LinkClicavel(
-                                  text: 'Clique aqui para acessar repositório do projeto!',
-                                  url: projetos[index].urlProjeto,
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
                       );
                     },
                   ),
@@ -194,7 +198,9 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                           color: Colors.white,
                         ),
                         SizedBox(
-                          child: Text('${_currentPage +1}/$numProjetos', style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
+                          child: Text('${_currentPage + 1}/$numProjetos',
+                              style: const TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255))),
                         ),
                         IconButton(
                           icon: const Icon(Icons.arrow_forward),

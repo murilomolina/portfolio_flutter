@@ -45,7 +45,7 @@ class ProjetoPadrao extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           LinkClicavel(
-              text: 'Clique aqui para acessar repositório do projeto!', url: urlProjeto),
+              text: '', url: urlProjeto),
         ],
       ),
     );

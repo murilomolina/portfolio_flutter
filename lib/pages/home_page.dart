@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               },
-              child: const Text('Copiar número para área de transferência'),
+              child: const Text('Copiar número'),
             ),
           ],
         );
@@ -385,14 +385,24 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+              (_currentPage == 0) ?
+              Positioned(
+                bottom: 16,
+                right: 16,
+                child: FloatingActionButton(
+                  onPressed: () => _scrollToPage(1),
+                  child: const Icon(Icons.arrow_downward),
+                ),
+              ):
               Positioned(
                 bottom: 16,
                 right: 16,
                 child: FloatingActionButton(
                   onPressed: _scrollToTop,
+                  tooltip: "Voltar ao topo",
                   child: const Icon(Icons.arrow_upward),
                 ),
-              ),
+              )
             ],
           );
         },

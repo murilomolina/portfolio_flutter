@@ -93,7 +93,7 @@ class _SobreMimCarrosselState extends State<SobreMimCarrossel> {
                       return GestureDetector(
                         onTap: () => _controller.animateToPage(index),
                         child: Container(
-                          width: 8.0,
+                          width: 15.0,
                           height: 8.0,
                           margin: const EdgeInsets.only(top: 3.0),
                           decoration: BoxDecoration(
