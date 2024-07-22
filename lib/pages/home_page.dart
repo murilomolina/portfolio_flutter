@@ -232,13 +232,13 @@ class _HomePageState extends State<HomePage> {
           return Stack(
             children: [
               CupertinoScrollbar(
+                controller: _pageController,
                 thumbVisibility: true,
-                thickness: 5,
+                thickness: 10,
+                thicknessWhileDragging: 10,
                 child: PageView(
                   controller: _pageController,
-                  physics: const AlwaysScrollableScrollPhysics(), // Física para sempre permitir rolagem
                   scrollDirection: Axis.vertical,
-                  scrollBehavior: const ScrollBehavior(),
                   children: const [
                     PaginaInicial(),
                     PaginaProjetos(),

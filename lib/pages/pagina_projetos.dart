@@ -27,6 +27,11 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
       descricao: descricao_proj_gerar_doc,
       urlProjeto: 'https://github.com/murilomolina?tab=repositories',
     ),
+    const ProjetoPadrao(
+      descricao: descricao_proj_relatorio_eizemitz,
+      titulo: 'Webscrapping/Extração de dados e envio de relatorio para a empresa EizeMitz',
+      urlProjeto: 'https://github.com/murilomolina/relatorio_diario_eizemitz.git',
+      imagem: 'lib/assets/pre_exibicao/relatorio_eizemitz',)
   ];
 
   late PageController _pageController;

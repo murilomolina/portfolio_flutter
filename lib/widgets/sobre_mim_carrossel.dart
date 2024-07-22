@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -60,9 +61,9 @@ class _SobreMimCarrosselState extends State<SobreMimCarrossel> {
                                 scrollDirection: Axis.vertical,
                                 child: Text(
                                   item,
-                                  style: const TextStyle(
-                                    fontSize: 20, 
-                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  style: TextStyle(
+                                    fontSize: (screenWidth <= mobileBreakpoint) ? 16: 20, 
+                                    color: const Color.fromARGB(255, 255, 255, 255),
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

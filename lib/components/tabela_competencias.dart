@@ -17,7 +17,7 @@ class TabelaCompetencias extends StatelessWidget {
           fonte = fontSizeMin;
         }
 
-        return CupertinoScrollbar(
+        return Scrollbar(
           thumbVisibility: true,
           thickness: 10,
           child: SingleChildScrollView(
