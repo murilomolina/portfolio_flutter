@@ -391,6 +391,7 @@ class _HomePageState extends State<HomePage> {
                 right: 16,
                 child: FloatingActionButton(
                   onPressed: () => _scrollToPage(1),
+                  tooltip: "Página de Projetos",
                   child: const Icon(Icons.arrow_downward),
                 ),
               ):
