@@ -3,35 +3,38 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:portfolio_flutter/utils/descricao_projetos.dart';
 import 'package:portfolio_flutter/widgets/link_clicavel.dart';
-import 'package:portfolio_flutter/widgets/projeto_padrao.dart';
+import 'package:portfolio_flutter/widgets/video_manager.dart';
 
 class PaginaProjetos extends StatefulWidget {
   const PaginaProjetos({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _PaginaProjetosState createState() => _PaginaProjetosState();
 }
 
 class _PaginaProjetosState extends State<PaginaProjetos> {
   final projetos = [
-    const ProjetoPadrao(
+    const (
       imagem: 'lib/assets/pre_exibicao/proj_missao_ambiental.jpg',
       titulo: 'Projeto Site Missão Ambiental',
       descricao: descricao_proj_missao_ambiental,
       urlProjeto: 'https://github.com/Parelho/PI_2_Semestre',
+      isvideo: false
     ),
-    const ProjetoPadrao(
+    const (
       imagem: 'lib/assets/pre_exibicao/exemplo.jpg',
       titulo: 'Documento de Memorial de Cálculos Básicos para OODC e EIV/RIT',
       descricao: descricao_proj_gerar_doc,
       urlProjeto: 'https://github.com/murilomolina?tab=repositories',
+      isvideo: false
     ),
-    const ProjetoPadrao(
+    const (
       descricao: descricao_proj_relatorio_eizemitz,
       titulo: 'Webscrapping/Extração de dados e envio de relatorio para a empresa EizeMitz',
       urlProjeto: 'https://github.com/murilomolina/relatorio_diario_eizemitz.git',
-      imagem: 'lib/assets/pre_exibicao/relatorio_eizemitz',)
+      imagem: 'lib/assets/pre_exibicao/eizemitz_executado.mp4',
+      isvideo: true
+      )
   ];
 
   late PageController _pageController;
@@ -113,17 +116,23 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                   ),
                                   Expanded(
                                     flex: 3,
-                                    child: AspectRatio(
-                                      aspectRatio: 16 / 9,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        child: Image.asset(
-                                          projetos[index].imagem,
-                                          fit: BoxFit.cover,
-                                        ),
+                                    child: (projetos[index].isvideo) ?
+                                  AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: VideoManager(videoPath: projetos[index].imagem)
+                                    ),
+                                  ): AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: Image.asset(
+                                        projetos[index].imagem,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
+                                  ),
                                   ),
                                 ],
                               )
@@ -139,7 +148,14 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                     ),
                                   ),
                                   const SizedBox(height: 10),
+                                  (projetos[index].isvideo) ?
                                   AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: VideoManager(videoPath: projetos[index].imagem),
+                                    ),
+                                  ): AspectRatio(
                                     aspectRatio: 16 / 9,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10.0),
