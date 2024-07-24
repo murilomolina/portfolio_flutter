@@ -55,7 +55,13 @@ class _HomePageState extends State<HomePage> {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      print('Could not launch $url');
+      // Mostrar Snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Não foi possível abrir o e-mail.'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     }
   }
 
@@ -69,7 +75,13 @@ class _HomePageState extends State<HomePage> {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      print('Could not launch $url');
+      // Mostrar Snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Não foi possível abrir o WhatsApp.'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     }
   }
 

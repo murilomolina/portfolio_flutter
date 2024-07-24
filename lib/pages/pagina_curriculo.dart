@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:portfolio_flutter/components/tabela_competencias.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:widget_zoom/widget_zoom.dart';
