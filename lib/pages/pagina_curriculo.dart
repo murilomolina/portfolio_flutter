@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:portfolio_flutter/components/tabela_competencias.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:widget_zoom/widget_zoom.dart';
@@ -53,30 +55,32 @@ class _PaginaCurriculoState extends State<PaginaCurriculo> {
                   children: [
                     Padding(
                       padding:  EdgeInsets.all(defineMargin(maxWidth)),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          children: [
-                            const Text(
-                              "Clique no curriculo para dar zoom!",
-                              style:
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Clique no curriculo para dar zoom!",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                          const Text("Na barra lateral (esquerda, ultimo item) é possível fazer o download do currículo em PDF!",
+                            style:
                                   TextStyle(color: Colors.white, fontSize: 14),
-                            ),
-                            const Text("Na barra lateral (esquerda, ultimo item) é possível fazer o download do currículo em PDF!",
-                              style:
-                                    TextStyle(color: Colors.white, fontSize: 14),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(paddingValue),
-                              child: WidgetZoom(
-                                heroAnimationTag: 'tag',
-                                zoomWidget: Image.asset(
-                                  'lib/assets/curriculo/curriculo.jpg',
+                          ),
+                          Expanded(
+                            child: FittedBox(
+                              child: Padding(
+                                padding: EdgeInsets.all(paddingValue),
+                                child: WidgetZoom(
+                                  heroAnimationTag: 'tag',
+                                  zoomWidget: Image.asset(
+                                    'lib/assets/curriculo/curriculo.jpg',
+                                     fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
