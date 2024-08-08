@@ -196,53 +196,56 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                       );
                     },
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: () {
-                            if (_currentPage > 0) {
-                              _pageController.previousPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            } else {
-                              _pageController.animateToPage(
-                                projetos.length - 1,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            }
-                          },
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          child: Text('${_currentPage + 1}/$numProjetos',
-                              style: const TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255))),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.arrow_forward),
-                          onPressed: () {
-                            if (_currentPage < projetos.length - 1) {
-                              _pageController.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            } else {
-                              _pageController.animateToPage(
-                                0,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            }
-                          },
-                          color: Colors.white,
-                        ),
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            onPressed: () {
+                              if (_currentPage > 0) {
+                                _pageController.previousPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
+                              } else {
+                                _pageController.animateToPage(
+                                  projetos.length - 1,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
+                              }
+                            },
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            child: Text('${_currentPage + 1}/$numProjetos',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255))),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.arrow_forward),
+                            onPressed: () {
+                              if (_currentPage < projetos.length - 1) {
+                                _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
+                              } else {
+                                _pageController.animateToPage(
+                                  0,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
+                              }
+                            },
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

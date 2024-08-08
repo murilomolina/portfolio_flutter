@@ -146,10 +146,15 @@ class _HomePageState extends State<HomePage> {
           await rootBundle.load('lib/assets/curriculo/curriculo.pdf');
       final Uint8List bytes = data.buffer.asUint8List();
       final Stream<int> stream = Stream.fromIterable(bytes);
-      download(stream, 'Curriculo - Murilo Molina Barone.pdf');
+      download(stream, 'curriculo.pdf');
     } catch (e) {
-      // ignore: avoid_print
-      print('Erro ao baixar o arquivo: $e');
+      // Mostrar Snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Não foi possível fazer o download do currículo'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     }
   }
 
