@@ -143,10 +143,10 @@ class _HomePageState extends State<HomePage> {
   Future<void> _download() async {
     try {
       final ByteData data =
-          await rootBundle.load('lib/assets/curriculo/curriculo.pdf');
+          await rootBundle.load('lib/assets/curriculo/curriculo_Murilo_Molina_Barone.pdf');
       final Uint8List bytes = data.buffer.asUint8List();
       final Stream<int> stream = Stream.fromIterable(bytes);
-      download(stream, 'curriculo.pdf');
+      download(stream, 'curriculo_Murilo_Molina_Barone.pdf');
     } catch (e) {
       // Mostrar Snackbar
     ScaffoldMessenger.of(context).showSnackBar(
@@ -330,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                                     'lib/assets/icons/baixarCurriculo.png'),
                                 tooltip: "Baixar Currículo",
                                 iconSize: 24,
-                                onPressed: () => _download,
+                                onPressed: () => _download(),
                               ),
                             ],
                           ),
