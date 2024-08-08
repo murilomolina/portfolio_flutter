@@ -31,10 +31,10 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
       isvideo: false
     ),
     const (
+      imagem: 'lib/assets/pre_exibicao/eizemitz_executado.mp4',
       descricao: descricao_proj_relatorio_eizemitz,
       titulo: 'Webscrapping/Extração de dados e envio de relatorio para a empresa EizeMitz',
       urlProjeto: 'https://github.com/murilomolina/relatorio_diario_eizemitz.git',
-      imagem: 'lib/assets/pre_exibicao/eizemitz_executado.mp4',
       isvideo: true
       )
   ];

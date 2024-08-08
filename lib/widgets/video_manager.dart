@@ -18,6 +18,7 @@ class _VideoManagerState extends State<VideoManager> {
     super.initState();
     flickManager = FlickManager(
       videoPlayerController: VideoPlayerController.asset(widget.videoPath),
+      // videoPlayerController: VideoPlayerController.networkUrl(widget.videoPath as Uri),
     );
   }
 
