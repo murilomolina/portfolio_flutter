@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:portfolio_flutter/widgets/certificado_box.dart';
 
 class PaginaCertificados extends StatefulWidget {
@@ -45,11 +46,17 @@ class _PaginaCertificadosState extends State<PaginaCertificados> {
 
   late PageController _pageController;
   int _currentPage = 0;
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _currentPage);
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
   }
 
   @override
@@ -83,10 +90,15 @@ class _PaginaCertificadosState extends State<PaginaCertificados> {
                     children: [
                       Expanded(
                         child: Center(
-                          child: SizedBox(
-                            child: certificados[index],
-                          ),
-                        ),
+                          child: isLoading
+                            ? LoadingAnimationWidget.discreteCircle(
+                              color: Colors.white,
+                              size: 100,
+                              )
+                              : SizedBox(
+                                child: certificados[index],
+                                )
+                              ),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,

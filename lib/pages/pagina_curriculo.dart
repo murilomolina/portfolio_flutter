@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:portfolio_flutter/components/tabela_competencias.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:widget_zoom/widget_zoom.dart';
@@ -14,11 +15,17 @@ class PaginaCurriculo extends StatefulWidget {
 class _PaginaCurriculoState extends State<PaginaCurriculo> {
   late PageController _pageController;
   int _currentPage = 0;
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _currentPage);
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
   }
 
   @override
@@ -68,11 +75,18 @@ class _PaginaCurriculoState extends State<PaginaCurriculo> {
                             child: FittedBox(
                               child: Padding(
                                 padding: EdgeInsets.all(paddingValue),
-                                child: WidgetZoom(
-                                  heroAnimationTag: 'tag',
-                                  zoomWidget: Image.asset(
-                                    'lib/assets/curriculo/curriculo.jpg',
-                                     fit: BoxFit.cover,
+                                child: Center(
+                                  child: isLoading
+                                    ? LoadingAnimationWidget.discreteCircle(
+                                      color: Colors.white,
+                                      size: 100,
+                                      )
+                                      :WidgetZoom(
+                                        heroAnimationTag: 'tag',
+                                        zoomWidget: Image.asset(
+                                          'lib/assets/curriculo/curriculo.jpg',
+                                          fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),

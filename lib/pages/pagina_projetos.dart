@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:portfolio_flutter/utils/breakpoints.dart';
 import 'package:portfolio_flutter/utils/descricao_projetos.dart';
 import 'package:portfolio_flutter/widgets/link_clicavel.dart';
@@ -40,11 +41,18 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
 
   late PageController _pageController;
   int _currentPage = 0;
+    bool isLoading = true;
+
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _currentPage);
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
   }
 
   @override
@@ -124,16 +132,27 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                       borderRadius: BorderRadius.circular(10.0),
                                       child: VideoManager(videoPath: projetos[index].imagem)
                                     ),
-                                  ): AspectRatio(
-                                    aspectRatio: 16 / 9,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: Image.asset(
-                                        projetos[index].imagem,
-                                        fit: BoxFit.cover,
+                                  ):  isLoading
+                                      ? AspectRatio(
+                                        aspectRatio: 16 / 9,
+                                        child: ClipRRect(
+                                          child: Center(
+                                            child: LoadingAnimationWidget.discreteCircle(
+                                              color: Colors.white,
+                                              size: 100,
+                                              ),
+                                          ),
+                                        ),
+                                      ): AspectRatio(
+                                      aspectRatio: 16 / 9,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          projetos[index].imagem,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   ),
                                 ],
                               )
@@ -156,16 +175,27 @@ class _PaginaProjetosState extends State<PaginaProjetos> {
                                       borderRadius: BorderRadius.circular(10.0),
                                       child: VideoManager(videoPath: projetos[index].imagem),
                                     ),
-                                  ): AspectRatio(
-                                    aspectRatio: 16 / 9,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: Image.asset(
-                                        projetos[index].imagem,
-                                        fit: BoxFit.cover,
+                                  ): isLoading
+                                      ? AspectRatio(
+                                        aspectRatio: 16 / 9,
+                                        child: ClipRRect(
+                                          child: Center(
+                                            child: LoadingAnimationWidget.discreteCircle(
+                                              color: Colors.white,
+                                              size: 100,
+                                              ),
+                                          ),
+                                        ),
+                                      ): AspectRatio(
+                                      aspectRatio: 16 / 9,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          projetos[index].imagem,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   const SizedBox(height: 10),
                                   Expanded(
                                     child: CupertinoScrollbar(
